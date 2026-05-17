@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import PortfolioLayout from "@/components/PortfolioLayout";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,6 +47,7 @@ export default function RootLayout({
         <PortfolioLayout>
           {children}
         </PortfolioLayout>
+        <Analytics />
       </body>
     </html>
   );
