@@ -1,0 +1,567 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-gold: #C9A96E;
+  --color-gold-light: #E8D5B0;
+  --color-gold-dark: #9A7B4F;
+  --color-gold-50: #FDF8F0;
+  --color-gold-100: #F5ECD8;
+  --color-dark: #0A0A0A;
+  --color-dark-lighter: #141414;
+  --color-dark-card: #1A1A1A;
+  --color-dark-border: #2A2A2A;
+}
+
+/* ===== DARK MODE ONLY VARIABLES ===== */
+:root {
+  --radius: 0.625rem;
+  --background: #0A0A0A;
+  --foreground: #ffffff;
+  --card: #1A1A1A;
+  --card-foreground: #ffffff;
+  --popover: #1A1A1A;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #0A0A0A;
+  --secondary: #111111;
+  --secondary-foreground: #ffffff;
+  --muted: #111111;
+  --muted-foreground: rgba(255, 255, 255, 0.5);
+  --accent: #C9A96E;
+  --accent-foreground: #0A0A0A;
+  --destructive: #EF4444;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #C9A96E;
+  --chart-1: #C9A96E;
+  --chart-2: #ffffff;
+  --chart-3: rgba(255, 255, 255, 0.5);
+  --chart-4: #E8D5B0;
+  --chart-5: #9A7B4F;
+  --sidebar: #0A0A0A;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #C9A96E;
+  --sidebar-primary-foreground: #0A0A0A;
+  --sidebar-accent: rgba(201, 169, 110, 0.1);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #C9A96E;
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #111111;
+  --bg-card: #1A1A1A;
+  --bg-nav: rgba(0, 0, 0, 0.95);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.45);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(201, 169, 110, 0.2);
+  /* Theme-aware inline style variables */
+  --c-text-primary: #ffffff;
+  --c-text-secondary: rgba(255,255,255,0.7);
+  --c-text-muted: rgba(255,255,255,0.5);
+  --c-text-faint: rgba(255,255,255,0.35);
+  --c-text-ghost: rgba(255,255,255,0.2);
+  --c-text-micro: rgba(255,255,255,0.1);
+  --c-surface-dark: #111111;
+  --c-surface-card: #1a1a1a;
+  --c-surface-hover: #252525;
+  --c-border-subtle: rgba(255,255,255,0.08);
+  --c-search-overlay-bg: rgba(0,0,0,0.95);
+  --c-search-input-bg: #111;
+  --c-mobile-nav-bg: rgba(0,0,0,0.95);
+  --c-gold-bg-alpha: rgba(201, 169, 110, 0.1);
+  /* Chatbot-specific variables */
+  --chat-panel-bg: #0d0d0d;
+  --chat-bubble-bot: rgba(255,255,255,0.04);
+  --chat-bubble-bot-border: rgba(255,255,255,0.04);
+  --chat-header-bg: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(201,169,110,0.02));
+  --chat-input-bg: rgba(255,255,255,0.03);
+  --chat-input-border: rgba(255,255,255,0.06);
+  --chat-btn-bg: transparent;
+  --chat-btn-hover: rgba(255,255,255,0.05);
+  --chat-hi-bubble-bg: #1a1a1a;
+  --chat-suggestion-bg: transparent;
+  --chat-suggestion-border: rgba(255,255,255,0.04);
+  --chat-scroll-thumb: rgba(201,169,110,0.2);
+  --chat-tag-bg: rgba(201,169,110,0.1);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom scrollbar — dark only */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A96E;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E8D5B0;
+}
+
+/* Leaflet Map — Dark Gold Theme Override */
+.custom-gold-popup .leaflet-popup-content-wrapper {
+  background: #111 !important;
+  color: #fff !important;
+  border: 1px solid rgba(201, 169, 110, 0.2) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(201, 169, 110, 0.08) !important;
+  padding: 0 !important;
+}
+
+.custom-gold-popup .leaflet-popup-content {
+  margin: 16px 18px !important;
+  color: #fff !important;
+}
+
+.custom-gold-popup .leaflet-popup-tip {
+  background: #111 !important;
+  border: 1px solid rgba(201, 169, 110, 0.2) !important;
+  box-shadow: none !important;
+}
+
+.custom-gold-popup .leaflet-popup-close-button {
+  color: #888 !important;
+  font-size: 20px !important;
+  padding: 6px 8px 0 0 !important;
+  z-index: 10;
+}
+
+.custom-gold-popup .leaflet-popup-close-button:hover {
+  color: #C9A96E !important;
+}
+
+/* Leaflet container background */
+.leaflet-container {
+  background: #0D0D0D !important;
+}
+
+/* Leaflet zoom controls dark theme */
+.leaflet-control-zoom a {
+  background: #1A1A1A !important;
+  color: #C9A96E !important;
+  border-color: rgba(201, 169, 110, 0.2) !important;
+  transition: background 0.2s !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #252525 !important;
+  color: #E8D5B0 !important;
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.leaflet-control-zoom-in {
+  border-radius: 8px 8px 0 0 !important;
+}
+
+.leaflet-control-zoom-out {
+  border-radius: 0 0 8px 8px !important;
+}
+
+/* Map project buttons inside popups */
+.map-project-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #1A1A1A;
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  width: 100%;
+}
+
+.map-project-btn:hover {
+  border-color: rgba(201, 169, 110, 0.5);
+  background: #222;
+}
+
+.map-thumb {
+  width: 44px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.map-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.map-meta {
+  font-size: 10px;
+  color: #888;
+  margin-top: 1px;
+}
+
+/* Gold gradient text utility */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #C9A96E 0%, #E8D5B0 50%, #C9A96E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold line separator */
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #C9A96E 50%, transparent 100%);
+}
+
+/* Shimmer animation for gold elements */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #C9A96E 0%, #E8D5B0 25%, #C9A96E 50%, #E8D5B0 75%, #C9A96E 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Chatbot slideUp animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Image reveal animation */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ken Burns — slow cinematic zoom for hero background */
+@keyframes kenBurns {
+  0%   { transform: scale(1.05); }
+  100% { transform: scale(1.15); }
+}
+
+/* Zoom In — slow cinematic zoom-in */
+.kb-zoom-in img {
+  animation: kbZoomIn 12s ease-in-out forwards;
+}
+@keyframes kbZoomIn {
+  0%   { transform: scale(1.0) translate(0, 0); }
+  100% { transform: scale(1.15) translate(0, 0); }
+}
+
+/* Zoom Out — slow cinematic zoom-out */
+.kb-zoom-out img {
+  animation: kbZoomOut 12s ease-in-out forwards;
+}
+@keyframes kbZoomOut {
+  0%   { transform: scale(1.15) translate(0, 0); }
+  100% { transform: scale(1.02) translate(0, 0); }
+}
+
+/* Pan Left — slow leftward drift */
+.kb-pan-left img {
+  animation: kbPanLeft 12s ease-in-out forwards;
+}
+@keyframes kbPanLeft {
+  0%   { transform: scale(1.12) translate(3%, 0); }
+  100% { transform: scale(1.12) translate(-3%, 0); }
+}
+
+/* Pan Right — slow rightward drift */
+.kb-pan-right img {
+  animation: kbPanRight 12s ease-in-out forwards;
+}
+@keyframes kbPanRight {
+  0%   { transform: scale(1.12) translate(-3%, 0); }
+  100% { transform: scale(1.12) translate(3%, 0); }
+}
+
+/* Dialog scroll support — enables smooth scrolling inside modal dialogs on mobile */
+[data-slot="dialog-content"] {
+  -webkit-overflow-scrolling: touch;
+}
+[data-slot="dialog-content"][class*="overflow-y-auto"] {
+  overscroll-behavior: contain;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mosaic tile — slow cinematic zoom */
+.mosaic-crop {
+  animation: mosaicZoom 10s ease-in-out alternate infinite;
+  transition: opacity 1.5s ease-in-out;
+}
+@keyframes mosaicZoom {
+  0%   { transform: scale(1.0); }
+  100% { transform: scale(1.12); }
+}
+
+/* Stagger zoom start for adjacent tiles */
+.mosaic-tile:nth-child(odd) .mosaic-crop {
+  animation-delay: 0s;
+  animation-duration: 12s;
+}
+.mosaic-tile:nth-child(even) .mosaic-crop {
+  animation-delay: -3s;
+  animation-duration: 9s;
+}
+.mosaic-tile:nth-child(3n) .mosaic-crop {
+  animation-delay: -6s;
+  animation-duration: 14s;
+}
+
+/* ===================================================================
+   Hero Showcase — Crossfade + Ken Burns + Monochrome/Color
+   =================================================================== */
+
+.hero-showcase {
+  position: relative;
+}
+
+.hero-slide-img {
+  will-change: opacity, filter;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.hero-slide-img img {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Hero scroll indicator bounce */
+@keyframes heroBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* Data box blink animation — flashes exactly twice, stops on data box hover */
+@keyframes dataBoxBlink {
+  0%   { opacity: 1;    border-color: rgba(255,255,255,0.04); box-shadow: 0 0 0 rgba(255,255,255,0); }
+  25%  { opacity: 0.2;  border-color: rgba(201,169,110,0.5);   box-shadow: 0 0 20px rgba(201,169,110,0.3); }
+  50%  { opacity: 0.9;  border-color: rgba(201,169,110,0.7);   box-shadow: 0 0 28px rgba(201,169,110,0.45); }
+  75%  { opacity: 0.2;  border-color: rgba(201,169,110,0.5);   box-shadow: 0 0 20px rgba(201,169,110,0.3); }
+  100% { opacity: 1;    border-color: rgba(255,255,255,0.04); box-shadow: 0 0 0 rgba(255,255,255,0); }
+}
+
+.data-box-blink {
+  animation: dataBoxBlink 1.4s ease-in-out 2;
+}
+
+/* One-shot blink — used when clicking the image (not hover) */
+.data-box-blink-once {
+  animation: dataBoxBlink 1.4s ease-in-out 2 forwards;
+}
+
+/* Logo pulse glow — hints that the logo is clickable */
+@keyframes logoPulse {
+  0%    { transform: scale(1); }
+  8%    { transform: scale(1.12); }
+  16%   { transform: scale(1); }
+  24%   { transform: scale(1.12); }
+  32%   { transform: scale(1); }
+  100%  { transform: scale(1); }
+}
+
+.logo-pulse-repeat {
+  animation: logoPulse 20s ease-in-out infinite;
+}
+
+.logo-pulse-repeat:hover {
+  animation: none;
+  transform: scale(1.05);
+}
+
+/* Surface utility classes for inline style replacements */
+.surface-dark {
+  background-color: var(--c-surface-dark);
+}
+.surface-card {
+  background-color: var(--c-surface-card);
+}
+.surface-hover {
+  background-color: var(--c-surface-hover);
+}
+
+/* Search overlay */
+.search-overlay-bg {
+  background-color: var(--c-search-overlay-bg);
+}
+.search-input-bg {
+  background-color: var(--c-search-input-bg);
+}
+
+/* Mobile nav overlay */
+.mobile-nav-overlay {
+  background-color: var(--c-mobile-nav-bg);
+  backdrop-filter: blur(20px);
+}
+
+/* ===================================================================
+   HERO DARK CONTEXT — always-dark overrides (dark overlays on images)
+   =================================================================== */
+.hero-dark-context .text-white { color: #ffffff !important; }
+.hero-dark-context .text-white\/80 { color: rgba(255,255,255,0.8) !important; }
+.hero-dark-context .text-white\/70 { color: rgba(255,255,255,0.7) !important; }
+.hero-dark-context .text-white\/60 { color: rgba(255,255,255,0.6) !important; }
+.hero-dark-context .text-white\/50 { color: rgba(255,255,255,0.5) !important; }
+.hero-dark-context .text-white\/45 { color: rgba(255,255,255,0.45) !important; }
+.hero-dark-context .text-white\/40 { color: rgba(255,255,255,0.4) !important; }
+.hero-dark-context .text-white\/35 { color: rgba(255,255,255,0.35) !important; }
+.hero-dark-context .text-white\/30 { color: rgba(255,255,255,0.3) !important; }
+.hero-dark-context .text-white\/25 { color: rgba(255,255,255,0.25) !important; }
+.hero-dark-context .text-white\/20 { color: rgba(255,255,255,0.2) !important; }
+.hero-dark-context .text-white\/15 { color: rgba(255,255,255,0.15) !important; }
+.hero-dark-context .text-white\/10 { color: rgba(255,255,255,0.1) !important; }
+.hero-dark-context .border-white\/10,
+.hero-dark-context .border-white\/5,
+.hero-dark-context .border-white\/20,
+.hero-dark-context .border-white\/15,
+.hero-dark-context .border-white\/3,
+.hero-dark-context .border-white\/\[0\.04\],
+.hero-dark-context .border-white\/\[0\.06\] {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.hero-dark-context .bg-black\/15,
+.hero-dark-context .bg-black\/50,
+.hero-dark-context .bg-black\/60 {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+}
+.hero-dark-context .bg-black\/0 { background-color: transparent !important; }
+.hero-dark-context .hover\:bg-black\/50:hover { background-color: rgba(0, 0, 0, 0.5) !important; }
+.hero-dark-context .bg-white\/10,
+.hero-dark-context .bg-white\/5 { background-color: rgba(255, 255, 255, 0.1) !important; }
+.hero-dark-context .bg-white\/\[0\.03\],
+.hero-dark-context .bg-white\/\[0\.06\] { background-color: rgba(255, 255, 255, 0.04) !important; }
+.hero-dark-context .hover\:bg-white\/10:hover,
+.hero-dark-context .hover\:bg-white\/5:hover { background-color: rgba(255, 255, 255, 0.1) !important; }
+.hero-dark-context .data-box-blink,
+.hero-dark-context .data-box-blink-once { animation: dataBoxBlink 1.4s ease-in-out 2 forwards !important; }
+.hero-dark-context .focus-within\:border-\[\#C9A96E\]\/20:focus-within { border-color: rgba(201, 169, 110, 0.2) !important; }
+
+/* ===================================================================
+   LIGHTBOX CONTEXT — always-dark overrides
+   =================================================================== */
+.lightbox-context .border-white\/10,
+.lightbox-context .border-white\/5,
+.lightbox-context .border-white\/20,
+.lightbox-context .border-white\/15,
+.lightbox-context .border-white\/3 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.lightbox-context .bg-black\/50 {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+.lightbox-context .bg-black\/60 {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+.lightbox-context .hover\:bg-black\/50:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+.lightbox-context .hover\:bg-white\/10:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+.lightbox-context .bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Lightbox fullscreen mode */
+.lightbox-context:fullscreen,
+.lightbox-context:-webkit-full-screen {
+  background-color: rgba(0, 0, 0, 1) !important;
+}
+.chat-lightbox:fullscreen,
+.chat-lightbox:-webkit-full-screen {
+  background-color: rgba(0, 0, 0, 1) !important;
+}
